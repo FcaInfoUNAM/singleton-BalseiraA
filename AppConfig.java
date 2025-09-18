@@ -1,12 +1,17 @@
 public class AppConfig {
     private String theme;
     private String language;
+    private static final AppConfig instance = new AppConfig(); //creación e inicialización de la única instancia utilizada
 
     public AppConfig() {
         // Load default settings
         this.theme = "Light";
         this.language = "EN";
         System.out.println("New AppConfig instance created!");
+    }
+
+    public static AppConfig getInstance() { //método getter estático
+        return instance;
     }
 
     public String getTheme() { return theme; }
